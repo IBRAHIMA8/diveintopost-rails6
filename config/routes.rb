@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
   resource :user
-
+  
   resources :teams do
     member do
       get :change_leader
