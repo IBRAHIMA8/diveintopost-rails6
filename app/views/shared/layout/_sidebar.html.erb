@@ -3,7 +3,6 @@
   <%= link_to dashboard_url, class: 'brand-link' do %>
     <span class="brand-text font-weight-light">DIVE INTO POST</span>
   <% end %>
-
   <!-- Sidebar -->
   <div class="sidebar">
     <div class="user-panel mt-3 pb-3 mb-3">
@@ -11,7 +10,6 @@
         <h3 style="color: white;"><%= @working_team.name.truncate(15) %></h3>
       </div>
     </div>
-
     <div class="user-panel mt-3 pb-3 mb-3">
       <div class="info">
         <a href="#" class="d-block mb-1"><%= I18n.t('views.messages.create_agenda') %></a>
@@ -32,16 +30,14 @@
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="fa fa-circle-o nav-icon"></i>
-              <p>
-                <%= agenda.title %>
+              <p><%= agenda.title %></p>
                 <% if current_user.id == agenda.user_id || current_user.id == agenda.team.owner.id  %>
-                 <!-- if current_user.id == agenda.user_id -->
-                   <div class="text-right">
-                    <%= link_to I18n.t('views.button.delete'), agenda_path(agenda.id), method: :delete, class: 'btn btn-sm btn-danger' %>
-                   </div>
-                 <% end %>
+                  <!-- if current_user.id == agenda.user_id -->
+                    <div class="text-right">
+                     <%= link_to I18n.t('views.button.delete'), agenda_path(agenda.id), method: :delete, class: 'btn btn-sm btn-danger' %>
+                    </div>
+                  <% end %>
                 <i class="right fa fa-angle-left"></i>
-              
             </a>
             <ul class="nav nav-treeview" style="display: block;">
               <% agenda.articles.each do |article| %>
